@@ -11,7 +11,7 @@ const page = () => {
 
   async function fetchMagic() {
     if (!question) {
-      alert("Question is required.");
+      setAnswer("Question is required.");
       return;
     }
 
@@ -21,11 +21,17 @@ const page = () => {
 
     const data = await response.text();
     setAnswer(data);
+    setQuestion("")
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat bg-[url(/Assets/background.jpg)]">
       <div className="flex flex-col items-center">
+        <h1 className="text-5xl font-extrabold pb-4">Magic</h1>
+        <h1 className="text-5xl font-extrabold pb-4">8</h1>
+        <h1 className="text-5xl font-extrabold pb-4">Ball</h1>
+
+
 
         {/* Home Button */}
         <button

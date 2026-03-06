@@ -12,7 +12,7 @@ const page = () => {
 
   async function fetchGreaterLessThanSum() {
     if (number1 === "" || number2 === "") {
-      alert("Both numbers are required.");
+      setResult("Both numbers are required.");
       return;
     }
 
@@ -21,11 +21,15 @@ const page = () => {
 
     const data = await response.text();
     setResult(data);
+    setNumber1("");
+    setNumber2("");
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat bg-[url(/Assets/background.jpg)]">
       <div className="flex flex-col items-center">
+        <h1 className="text-5xl font-extrabold pb-4">Greater Than</h1>
+        <h1 className="text-5xl font-extrabold pb-4">Less Than</h1>
 
         {/* Home Button */}
         <button

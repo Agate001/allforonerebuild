@@ -12,7 +12,7 @@ const page = () => {
 
   async function fetchAnswer() {
     if (question1 === "" || question2 === "") {
-      alert("Both answers are required.");
+      setAnswer("Both answers are required.");
       return;
     }
 
@@ -22,11 +22,17 @@ const page = () => {
 
     const data = await response.text();
     setAnswer(data);
+    setQuestion1("")
+    setQuestion2("")
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat bg-[url(/Assets/background.jpg)]">
       <div className="flex flex-col items-center">
+
+        <h1 className="text-5xl font-extrabold pb-4">Asking</h1>
+        <h1 className="text-5xl font-extrabold pb-4">Questions</h1>
+
         <button
           onClick={() => push("/")}
           className="mb-4 px-4 py-2 bg-white text-gray-900 border border-gray-300 rounded hover:bg-gray-100 hover:text-blue-700"

@@ -34,3 +34,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+Peer Review: Daniel Herrera
+For your challenge pages, you should include a title to let user know which page their on!
+Have all input fields reset when user presses enter!
+Make sure home button in say hello is consistent with all other pages!
+For input validation, look into Modals to display input validation messages!
+Other than that, All your endpoints are working properly!
+
+removed alert and did dom manipulation instead

@@ -11,7 +11,7 @@ const page = () => {
 
   async function fetchOddEven() {
     if (!number) {
-      alert("Number is required.");
+      setResult("Number is required.");
       return;
     }
 
@@ -21,11 +21,14 @@ const page = () => {
 
     const data = await response.text();
     setResult(data);
+    setNumber("")
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat bg-[url(/Assets/background.jpg)]">
       <div className="flex flex-col items-center">
+        <h1 className="text-5xl font-extrabold pb-4">Odd Or Even</h1>
+
 
         {/* Home Button */}
         <button

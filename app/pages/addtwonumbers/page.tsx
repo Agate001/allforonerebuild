@@ -12,7 +12,7 @@ const page = () => {
 
   async function fetchSum() {
     if (num1 === "" || num2 === "") {
-      alert("Both numbers are required.");
+      setSum("Both numbers are required.");
       return;
     }
 
@@ -22,11 +22,17 @@ const page = () => {
 
     const data = await response.text();
     setSum(data);
+    setNum1("")
+    setNum2("")
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat bg-[url(/Assets/background.jpg)]">
       <div className="flex flex-col items-center">
+        <h1 className="text-5xl font-extrabold pb-4">Add </h1>
+        <h1 className="text-5xl font-extrabold pb-4">2</h1>
+        <h1 className="text-5xl font-extrabold pb-4">Numbers</h1>
+
         <button
           onClick={() => push("/")}
           className="mb-4 px-4 py-2 bg-white text-gray-900 border border-gray-300 rounded hover:bg-gray-100 hover:text-blue-700"

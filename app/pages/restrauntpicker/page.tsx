@@ -10,11 +10,6 @@ const page = () => {
   const [choice, setChoice] = useState("Select your category");
 
   async function fetchRestaurantPick() {
-    if (!category) {
-      alert("Category is required.");
-      return;
-    }
-
     const response = await fetch(
       `https://allforonecl-ffe6dbf2d7eaasdp.westus3-01.azurewebsites.net/api/RestrauntPick/get/${category}`
     );
@@ -26,6 +21,8 @@ const page = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat bg-[url(/Assets/background.jpg)]">
       <div className="flex flex-col items-center">
+        <h1 className="text-5xl font-extrabold pb-4">Restraunt</h1>
+        <h1 className="text-5xl font-extrabold pb-4">Picker</h1>
 
         {/* Home Button */}
         <button

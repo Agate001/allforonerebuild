@@ -6,15 +6,15 @@ import { useRouter } from "next/navigation";
 const page = () => {
   const { push } = useRouter();
 
-  const [name, setName] = useState("");
-  const [adjective, setAdjective] = useState("");
-  const [noun, setNoun] = useState("");
-  const [verb, setVerb] = useState("");
+  let [name, setName] = useState("");
+  let [adjective, setAdjective] = useState("");
+  let [noun, setNoun] = useState("");
+  let [verb, setVerb] = useState("");
   const [story, setStory] = useState("Enter Your Answers");
 
   async function fetchMadLib() {
     if (!name || !adjective || !noun || !verb) {
-      alert("All fields are required.");
+      setStory("All fields are required.");
       return;
     }
 
@@ -24,12 +24,16 @@ const page = () => {
 
     const data = await response.text();
     setStory(data);
+    setName("");
+    setAdjective("");
+    setNoun("");
+    setVerb("");
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat bg-[url(/Assets/background.jpg)]">
       <div className="flex flex-col items-center">
-
+        <h1 className="text-5xl font-extrabold pb-4">Madlib</h1>
         {/* Home Button */}
         <button
           onClick={() => push("/")}
