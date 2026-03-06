@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { greaterLess } from "@/app/Script/DataService";
 
 const page = () => {
   const { push } = useRouter();
@@ -16,11 +17,9 @@ const page = () => {
       return;
     }
 
-    const response = await fetch(
-    `https://allforonecl-ffe6dbf2d7eaasdp.westus3-01.azurewebsites.net/api/GreaterThanLessThan/compare/${number1}/${number2}`    );
-
-    const data = await response.text();
+    const data = await greaterLess(number1, number2);
     setResult(data);
+
     setNumber1("");
     setNumber2("");
   }

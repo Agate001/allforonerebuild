@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { restaurantPick } from "@/app/Script/DataService";
 
 const page = () => {
   const { push } = useRouter();
@@ -10,11 +11,8 @@ const page = () => {
   const [choice, setChoice] = useState("Select your category");
 
   async function fetchRestaurantPick() {
-    const response = await fetch(
-      `https://allforonecl-ffe6dbf2d7eaasdp.westus3-01.azurewebsites.net/api/RestrauntPick/get/${category}`
-    );
+    const data = await restaurantPick(category);
 
-    const data = await response.text();
     setChoice(data);
   }
 

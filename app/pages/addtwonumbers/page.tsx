@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { addTwoNumbers } from "@/app/Script/DataService";
 
 const page = () => {
   const { push } = useRouter();
@@ -16,12 +17,8 @@ const page = () => {
       return;
     }
 
-    const response = await fetch(
-      `https://allforonecl-ffe6dbf2d7eaasdp.westus3-01.azurewebsites.net/api/AddTwoNumbers/get/${num1}/${num2}`,
-    );
-
-    const data = await response.text();
-    setSum(data);
+    const response = await addTwoNumbers(num1, num2);
+    setSum(response);
     setNum1("")
     setNum2("")
   }

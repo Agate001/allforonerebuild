@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { madLib } from "@/app/Script/DataService";
 
 const page = () => {
   const { push } = useRouter();
@@ -18,11 +19,7 @@ const page = () => {
       return;
     }
 
-    const response = await fetch(
-      `https://allforonecl-ffe6dbf2d7eaasdp.westus3-01.azurewebsites.net/MadLib/get/${name}/${adjective}/${noun}/${verb}`
-    );
-
-    const data = await response.text();
+   const data = await madLib(name, adjective, noun, verb);
     setStory(data);
     setName("");
     setAdjective("");

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { sayHello } from "@/app/Script/DataService";
 
 const page = () => {
   const { push } = useRouter();
@@ -15,11 +16,8 @@ const page = () => {
       return;
     }
 
-    const response = await fetch(
-      `https://allforonecl-ffe6dbf2d7eaasdp.westus3-01.azurewebsites.net/HelloWorld/get/${name}`
-    );
+    const data = await sayHello(name);
 
-    const data = await response.text();
     setGreet(data);
     setName("")
   }

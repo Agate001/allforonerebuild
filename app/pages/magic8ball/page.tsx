@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { magic8Ball } from "@/app/Script/DataService";
 
 const page = () => {
   const { push } = useRouter();
@@ -15,11 +16,8 @@ const page = () => {
       return;
     }
 
-    const response = await fetch(
-      `https://allforonecl-ffe6dbf2d7eaasdp.westus3-01.azurewebsites.net/api/Magic8Ball/get/${question}`
-    );
+    const data = await magic8Ball(question);
 
-    const data = await response.text();
     setAnswer(data);
     setQuestion("")
   }
